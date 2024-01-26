@@ -1,0 +1,6 @@
+{
+    "products":[
+        {"name":"ProductA","age":20},
+        {"name":"ProductB","age":19}
+    ]
+}
