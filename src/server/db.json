@@ -1,6 +1,6 @@
 {
-    "products":[
-        {"name":"ProductA","age":20},
-        {"name":"ProductB","age":19}
-    ]
+  "products": [
+    {"id":123,"name":"kieuducmanh","age":30},
+    {"id":1234,"name":"buiminhhue","age":20}
+  ]
 }
