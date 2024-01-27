@@ -8,6 +8,7 @@ import Dashboard from './page/Dashboard'
 import WebsiteLayout from './page/layout/WebsiteLayout'
 import Aminlayout from './page/layout/Aminlayout'
 import Managerproduct from './page/Managerproduct'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     
     const[count,setCount]=useState<number>(0)
     const [ products,setProducts]=useState<ProductType[]>([])
+    
     // dùng fetch
   // useEffect( ()=>{
   //     const GetProduct = async()=>{
@@ -46,7 +48,7 @@ function App() {
        axios.delete('http://localhost:3000/products/'+id)
       // console.log(id)
       const newProducts= products.filter(item=>item.id !==id) // dùng cái này cũng xóa dc 
-       setProducts(newProducts)
+       setProducts(newProducts) // reload 
       // const RemoveItem =async ()=>{
       //      await axios.delete('http://localhost:3000/products/'+id)
       // }
@@ -85,9 +87,9 @@ function App() {
          <header>
            <ul>
             
-             <li><Link to="/">Home Page</Link></li>
+             {/* <li><Link to="/">Home Page</Link></li>
              <li><Link to="/Product">ProductPage</Link></li>
-             <li><Link to="/amin/dashboard">Dashboard</Link></li>
+             <li><Link to="/amin/dashboard">Dashboard</Link></li> */}
            </ul>
          </header>
          <main>
@@ -104,7 +106,7 @@ function App() {
               <Route path='/amin'element={<Aminlayout/>}>
                  <Route index element={<Navigate to={"dashboard"}/>} />
                  <Route path='dashboard'element={<Dashboard/>} />
-                  <Route path='product' element={<Managerproduct/>}/>
+                  <Route path='product' element={<Managerproduct data={products} />}/>
               </Route>
               
            </Routes>
