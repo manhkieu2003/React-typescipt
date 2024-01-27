@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react'
 import { ProductType } from './Type/ProductType'
-import axios, { Axios } from 'axios'
+import axios from 'axios'
+import { Link, NavLink, Navigate, Route, Routes } from 'react-router-dom'
+import HomePage from './page/HomePage'
+import ProductPage from './page/ProductPage'
+import Dashboard from './page/Dashboard'
+import WebsiteLayout from './page/layout/WebsiteLayout'
+import Aminlayout from './page/layout/Aminlayout'
+import Managerproduct from './page/Managerproduct'
 
 
 function App() {
@@ -52,7 +59,7 @@ function App() {
    
   return (
     <> 
-     <div>{count}</div>
+     {/* <div>{count}</div>
      <button onClick={()=>setCount(count+1)}>Increase</button>
      <table>
        <thead>
@@ -74,8 +81,34 @@ function App() {
                )
          })}
        </tbody>
-     </table>
-      
+     </table> */}
+         <header>
+           <ul>
+            
+             <li><Link to="/">Home Page</Link></li>
+             <li><Link to="/Product">ProductPage</Link></li>
+             <li><Link to="/amin/dashboard">Dashboard</Link></li>
+           </ul>
+         </header>
+         <main>
+           <Routes>
+              {/* <Route path='/' element={<HomePage/>}></Route>
+              <Route path='/product' element={<ProductPage/>}></Route>
+              <Route path='/amin/dashboard' element={<Dashboard/>}></Route> */}
+              <Route path='/' element={<WebsiteLayout/>}>
+                 <Route index element={<HomePage/>}/> 
+                  <Route path='/product' element={<ProductPage/>}/> 
+
+                   
+              </Route>
+              <Route path='/amin'element={<Aminlayout/>}>
+                 <Route index element={<Navigate to={"dashboard"}/>} />
+                 <Route path='dashboard'element={<Dashboard/>} />
+                  <Route path='product' element={<Managerproduct/>}/>
+              </Route>
+              
+           </Routes>
+         </main>
     </>
   )
 }
