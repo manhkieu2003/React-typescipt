@@ -53,7 +53,12 @@ function App() {
       // }
       // RemoveItem()
                        // nếu muốn xóa thì cần phải chạy lại server db.json
-    } 
+    }
+    const onHandleAdd= async (product:ProductType)=>{
+       const {data} = await axios.post('http://localhost:3000/products',product)
+       console.log("app.js",product)
+       setProducts([...products,data])
+    }
 
     
     
@@ -106,7 +111,7 @@ function App() {
                  <Route index element={<Navigate to={"dashboard"}/>} />
                  <Route path='dashboard'element={<Dashboard/>} />
                  <Route path='product' element={<Managerproduct data={products} />}/>
-                 <Route path='/amin/product/add' element={<ProductAdd/>}/>
+                 <Route path='/amin/product/add' element={<ProductAdd onAdd={onHandleAdd}/>}/>
               </Route>
               
            </Routes>

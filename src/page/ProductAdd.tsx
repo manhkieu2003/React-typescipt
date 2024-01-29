@@ -1,7 +1,10 @@
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
+import { ProductType } from '../Type/ProductType'
 
-type ProductAddProps = {}
+type ProductAddProps = {
+  onAdd:(product:ProductType)=>void
+}
 type Inputs = {
   name: string
   price: number
@@ -14,7 +17,9 @@ const ProductAdd = (props: ProductAddProps) => {
     watch,
     formState: { errors },
   } = useForm<Inputs>()
-  const onSubmits:SubmitHandler<Inputs> =(data)=>console.log(data)
+  const onSubmits:SubmitHandler<Inputs> =(data)=>{
+    props.onAdd(data)
+  }
 
   return (
     <div>

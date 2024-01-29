@@ -1,6 +1,24 @@
 {
   "products": [
-    {"id":123,"name":"kieuducmanh","age":30},
-    {"id":1234,"name":"buiminhhue","age":20}
+    {
+      "id": "123",
+      "name": "kieuducmanh",
+      "age": 30
+    },
+    {
+      "id": "1234",
+      "name": "buiminhhue",
+      "age": 20
+    },
+    {
+      "id": "9877",
+      "name": "kieuducmanh",
+      "price": "123444"
+    },
+    {
+      "id": "0788",
+      "name": "bùi minh huệ",
+      "price": "098765"
+    }
   ]
 }
