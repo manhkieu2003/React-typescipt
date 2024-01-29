@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
 import { ProductType } from '../Type/ProductType'
+import { useNavigate } from 'react-router-dom'
 
 type ProductAddProps = {
   onAdd:(product:ProductType)=>void
@@ -17,8 +18,10 @@ const ProductAdd = (props: ProductAddProps) => {
     watch,
     formState: { errors },
   } = useForm<Inputs>()
+  const Navigate=useNavigate()
   const onSubmits:SubmitHandler<Inputs> =(data)=>{
     props.onAdd(data)
+     Navigate('/amin/product') // dùng hook useNavigate để chuyển trang nhiệm vụ giống thằng window.location
   }
 
   return (
