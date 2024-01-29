@@ -9,6 +9,7 @@ import WebsiteLayout from './page/layout/WebsiteLayout'
 import Aminlayout from './page/layout/Aminlayout'
 import Managerproduct from './page/Managerproduct'
 import "bootstrap/dist/css/bootstrap.min.css"
+import ProductAdd from './page/ProductAdd'
 
 
 function App() {
@@ -34,8 +35,6 @@ function App() {
         const {data} = await axios.get('http://localhost:3000/products')
          console.log(data)
         setProducts(data)
-
-
       }
       GetProduct()
       
@@ -106,7 +105,8 @@ function App() {
               <Route path='/amin'element={<Aminlayout/>}>
                  <Route index element={<Navigate to={"dashboard"}/>} />
                  <Route path='dashboard'element={<Dashboard/>} />
-                  <Route path='product' element={<Managerproduct data={products} />}/>
+                 <Route path='product' element={<Managerproduct data={products} />}/>
+                 <Route path='/amin/product/add' element={<ProductAdd/>}/>
               </Route>
               
            </Routes>
